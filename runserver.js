@@ -1,21 +1,18 @@
-var express = require('http')
+var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
+require('dotenv').config();
 
-
-const connection =mysql.createConnection({
-
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "member"
-});
+const connection = mysql.createConnection(
+process.env.DATABASE_URL
+)
 
 const app=express()
 app.use(cors())
 app.use(express.json())
 
+console.log('Connected to PlanetScale!')
 
 
 app.get('/insertapi/:name/:depart/:tel/:lv',function(req,res,next){
@@ -219,6 +216,6 @@ app.get('/products/:id',function(req,res,next){
 })
 */
 
-app.listen(5000,function(){
-    console.log('enable port 5000')
+app.listen(3000,function(){
+    console.log('enable port 3000')
 })
