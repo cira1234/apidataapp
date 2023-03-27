@@ -3,6 +3,33 @@ var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
 require('dotenv').config();
+const path = require('path');
+const multer=require('multer');
+
+//test Image
+const storage = multer.diskStorage({
+
+    destination:(req,file,cb) =>{
+        cb(null,'images')
+    },
+    filename:(req,file,cb) =>{
+        console.log("file")
+        cb(null,Date.now()+path.extname(file.originalname))
+    }
+
+
+})
+const upload =multer({storage:storage})
+
+app.set("view engine","ejs");
+
+app.get("/upload",(req,res)=>{
+    res.render("upload");
+});
+app.post("/upload",upload.single("images"),(req,res)=>{
+
+    res.send("Image Upload complete");
+});
 
 const connection = mysql.createConnection(
 process.env.DATABASE_URL
