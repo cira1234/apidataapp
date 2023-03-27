@@ -212,6 +212,40 @@ app.get('/users/:id',function(req,res,next){
     )
     
 })
+
+
+
+app.get('/insertmenu/:name/:price/:detail/:typepush',function(req,res,next){
+    // insertapi.push(req.body)
+     //let json =req.body
+ 
+     var name=req.params.name;
+     var price=req.params.price;
+     var detail=req.params.detail;
+     var type=req.params.typepush;
+      var img=req.params.avatar
+ 
+     connection.query(
+     'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
+     [name,price,'',type,detail],
+ 
+         console.log(name),
+         console.log(price),
+         console.log(detail),
+         console.log(type),
+         console.log(),
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
 /*
 app.get('/products/:id',function(req,res,next){
     res.json({msg:'api connected!'})
