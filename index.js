@@ -2,9 +2,6 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
-require('dotenv').config();
-
-
 const path = require('path');
 const multer=require('multer');
 
@@ -32,7 +29,7 @@ app.post("/upload",upload.single("images"),(req,res)=>{
 
     res.send("Image Upload complete");
 });
-
+require('dotenv').config();
 
 
 const connection = mysql.createConnection(
