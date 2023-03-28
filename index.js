@@ -6,32 +6,32 @@ const { query } = require('express');
 require('dotenv').config();
 
 
-// const connection = mysql.createConnection(
-// process.env.DATABASE_URL
-// )
+const connection = mysql.createConnection(
+process.env.DATABASE_URL
+)
 
-// const app=express()
-// app.use(cors())
-// app.use(express.json())
+const app=express()
+app.use(cors())
+app.use(express.json())
 
-// console.log('Connected to PlanetScale!')
+console.log('Connected to PlanetScale!')
 
-// const path =require('path')
-//  const multer=require('multer');
-//  const storage=multer.diskStorage({
-//     destination: (req,file,cb)=>{
-//         cb(null,'image')
-//     },
-//     filename:(req,file,cb)=>{
-//         console.log(file)
-//         cb(null,Date.now()+path.extname(file.originalname))
-//     }
-//  })
-//  const upload =multer({storage:storage}) 
+const path =require('path')
+ const multer=require('multer');
+ const storage=multer.diskStorage({
+    destination: (req,file,cb)=>{
+        cb(null,'image')
+    },
+    filename:(req,file,cb)=>{
+        console.log(file)
+        cb(null,Date.now()+path.extname(file.originalname))
+    }
+ })
+ const upload =multer({storage:storage}) 
 
-// app.post("/upload",upload.single('images'),(req,res)=>{
-//     res.send("Image upload complete");
-// })
+app.post("/upload",upload.single('images'),(req,res)=>{
+    res.send("Image upload complete");
+})
 
 
 
