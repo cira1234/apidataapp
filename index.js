@@ -17,6 +17,74 @@ app.use(express.json())
 console.log('Connected to PlanetScale!')
 
 
+
+app.get('/insertmenu/:name/:price/:detail/:typepush',function(req,res,next){
+    // insertapi.push(req.body)
+     //let json =req.body
+ 
+     var name=req.params.name;
+     var price=req.params.price;
+     var detail=req.params.detail;
+     var type=req.params.typepush;
+      var img=req.params.avatar
+ 
+     connection.query(
+     'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
+     [name,price,'',type,detail],
+ 
+         console.log(name),
+         console.log(price),
+         console.log(detail),
+         console.log(type),
+         console.log(),
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+
+app.get('/insertcart/:namemenu/:price/:number/:imgmenu/:typepush/:menuid',function(req,res,next){
+    // insertapi.push(req.body)
+     //let json =req.body
+ 
+     var namemenu=req.params.namemenu;
+     var price=req.params.price;
+     var number=req.params.number;
+     var imgmenu=req.params.imgmenu;
+      var typepush=req.params.typepush;
+      var menuid = req.params.menuid;
+ 
+     connection.query(
+     'insert into priceup (namemenu,price,number,imgmenu,datail,table_id,menu_id) values (?,?,?,?,?,?,?)',     
+     [namemenu,price,number,'logo/img/'+imgmenu,'',typepush,menuid],
+ 
+         console.log(namemenu),
+         console.log(price),
+         console.log(number),
+         console.log(imgmenu),
+         console.log(typepush),
+         console.log(menuid),
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+
+
 app.get('/insertapi/:name/:depart/:tel/:lv',function(req,res,next){
    // insertapi.push(req.body)
     //let json =req.body
