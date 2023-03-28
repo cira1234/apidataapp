@@ -16,7 +16,22 @@ app.use(express.json())
 
 console.log('Connected to PlanetScale!')
 
+const path =require('path')
+ const multer=require('multer');
+ const storage=multer.diskStorage({
+    destination: (req,file,cb)=>{
+        cb(null,'image')
+    },
+    filename:(req,file,cb)=>{
+        console.log(file)
+        cb(null,Date.now()+path.extname(file.originalname))
+    }
+ })
+ const upload =multer({storage:storage}) 
 
+app.post("/upload",upload.single('images'),(req,res)=>{
+    res.send("Image upload complete");
+})
 
 app.get('/insertmenu/:name/:price/:detail/:typepush',function(req,res,next){
     // insertapi.push(req.body)
