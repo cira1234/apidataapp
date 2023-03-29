@@ -229,6 +229,28 @@ app.put('/updatedata',function(req,res,next){
 
 
 
+var http = require('http');
+var formidable = require('formidable');
+var fs = require('fs');
+
+http.createServer(function (req, res) {
+if (req.url == '/upload') {
+var form = new formidable.IncomingForm();
+form.parse(req, function (err, fields, files) {
+var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
+var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
+fs.rename(oldpath,newpath, function (err) {
+if (err) throw err;
+res.write('Upload Complete!');
+res.end();
+
+});
+});
+}
+});
+
+
+
 app.listen(3000,function(){
     console.log('enable port 3000')
 })
