@@ -211,7 +211,7 @@ app.put('/updatedata',function(req,res,next){
     
 })
 
-
+app.post("/upload",upload.single('images'),(req,res)=>{
  const storage=multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'image')
@@ -223,7 +223,7 @@ app.put('/updatedata',function(req,res,next){
  })
  const upload =multer({storage:storage}) 
 
-app.post("/upload",upload.single('images'),(req,res)=>{
+
     res.send("Image upload complete");
 })
 
