@@ -2,26 +2,10 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
-
+const multer =require('multer');
 require('dotenv').config();
 
 
-// const path =require('path')
-//  const multer=require('multer');
-//  const storage=multer.diskStorage({
-//     destination: (req,file,cb)=>{
-//         cb(null,'image')
-//     },
-//     filename:(req,file,cb)=>{
-//         console.log(file)
-//         cb(null,Date.now()+path.extname(file.originalname))
-//     }
-//  })
-//  const upload =multer({storage:storage}) 
-
-// app.post("/upload",upload.single('images'),(req,res)=>{
-//     res.send("Image upload complete");
-// })
 
 
 
@@ -225,6 +209,49 @@ app.put('/updatedata',function(req,res,next){
     )
     
 })
+
+
+const ImageModel =  require("./image");
+const mongoose= require('mongoose');
+const ImageSchema = mongoose.Shema({
+
+    name:{
+        type:String,
+        required:true
+        
+    },
+    image:{
+         data:Buffer,
+        contentType:String
+    
+    }
+})
+
+
+module.exports= ImageModel =mongoose.model('imageModel',ImageSchema)
+const Storage =multer.diskStorage({
+destination:'upload',
+filename:(req,file,cb)=>{
+    
+    
+   cb(null, file.originalname);
+},
+
+});
+
+
+const upload    = multer({
+
+    storage:Storage
+
+}).single('testImage')
+
+
+app.get("/",(req,res) =>{
+
+        res.send("upload file");
+        
+});
 
 app.listen(3000,function(){
     console.log('enable port 3000')
