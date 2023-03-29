@@ -161,6 +161,21 @@ app.get('/selectcart/:id',function(req,res,next){
 })
 
 
+app.get('/selecteditcart/:id',function(req,res,next){
+    var id=req.params.id;
+ connection.query(
+
+     'select id,namemenu,price,(price*number) AS priceupdate,number,imgmenu from priceup where id=? and checkorder=0',[id],
+     function(err,result,field){
+         res.json(result);
+         console.log(result);
+         console.log(field);
+     }
+ )
+ 
+})
+
+
 app.get('/selectdetail/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
