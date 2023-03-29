@@ -2,8 +2,8 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
-const path =require('path')
- const multer=require('multer');
+// const path =require('path')
+//  const multer=require('multer');
 require('dotenv').config();
 
 
