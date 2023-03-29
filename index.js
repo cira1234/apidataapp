@@ -6,16 +6,6 @@ const { query } = require('express');
 require('dotenv').config();
 
 
-const connection = mysql.createConnection(
-process.env.DATABASE_URL
-)
-
-const app=express()
-app.use(cors())
-app.use(express.json())
-
-console.log('Connected to PlanetScale!')
-
 const path =require('path')
  const multer=require('multer');
  const storage=multer.diskStorage({
@@ -32,6 +22,19 @@ const path =require('path')
 app.post("/upload",upload.single('images'),(req,res)=>{
     res.send("Image upload complete");
 })
+
+
+
+const connection = mysql.createConnection(
+process.env.DATABASE_URL
+)
+
+const app=express()
+app.use(cors())
+app.use(express.json())
+
+console.log('Connected to PlanetScale!')
+
 
 
 
