@@ -165,7 +165,7 @@ app.get('/selecteditcart/:id',function(req,res,next){
     var id=req.params.id;
  connection.query(
 
-     'select * from priceup where menu_id=? and checkorder=0',[id],
+     'select * from priceup where menu_id=? ',[id],
      function(err,result,field){
          res.json(result);
          console.log(result);
