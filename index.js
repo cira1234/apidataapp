@@ -223,7 +223,7 @@ app.put('/updatedata',function(req,res,next){
  })
  const upload=multer({storage:storage}) 
 
-app.post("/upload/:file",upload.single('image'),(req,res)=>{
+app.post("/upload",upload.single('image'),(req,res)=>{
     res.send("Image upload complete");
 })
 
