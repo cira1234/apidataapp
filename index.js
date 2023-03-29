@@ -165,7 +165,7 @@ app.get('/selecteditcart/:id',function(req,res,next){
     var id=req.params.id;
  connection.query(
 
-     'select namemenu,price,(price*number) AS priceupdate,number,imgmenu,datail,menu_id from priceup where menu_id=? and checkorder=0',[id],
+     'select * from priceup where menu_id=? and checkorder=0',[id],
      function(err,result,field){
          res.json(result);
          console.log(result);
