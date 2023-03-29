@@ -211,21 +211,21 @@ app.put('/updatedata',function(req,res,next){
     
 })
 
-app.post("/upload",upload.single('images'),(req,res)=>{
- const storage=multer.diskStorage({
-    destination: (req,file,cb)=>{
-        cb(null,'image')
-    },
-    filename:(req,file,cb)=>{
-        console.log(file)
-        cb(null,Date.now()+path.extname(file.originalname))
-    }
- })
- const upload =multer({storage:storage}) 
+// app.post("/upload",upload.single('images'),(req,res)=>{
+//  const storage=multer.diskStorage({
+//     destination: (req,file,cb)=>{
+//         cb(null,'image')
+//     },
+//     filename:(req,file,cb)=>{
+//         console.log(file)
+//         cb(null,Date.now()+path.extname(file.originalname))
+//     }
+//  })
+//  const upload =multer({storage:storage}) 
 
 
-    res.send("Image upload complete");
-})
+//     res.send("Image upload complete");
+// })
 
 
 
