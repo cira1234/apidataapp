@@ -2,6 +2,8 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
+const path =require('path')
+ const multer=require('multer');
 require('dotenv').config();
 
 
@@ -209,8 +211,7 @@ app.put('/updatedata',function(req,res,next){
     
 })
 
-const path =require('path')
- const multer=require('multer');
+
  const storage=multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'image')
