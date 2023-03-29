@@ -2,8 +2,8 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
-const path =require('path')
- const multer=require('multer');
+// const path =require('path')
+//  const multer=require('multer');
 require('dotenv').config();
 
 
@@ -212,20 +212,20 @@ app.put('/updatedata',function(req,res,next){
 })
 
 
- const storage=multer.diskStorage({
-    destination: (req,file,cb)=>{
-        cb(null,'image')
-    },
-    filename:(req,file,cb)=>{
-        console.log(file)
-        cb(null,Date.now()+path.extname(file.originalname))
-    }
- })
- const upload=multer({storage:storage}) 
+//  const storage=multer.diskStorage({
+//     destination: (req,file,cb)=>{
+//         cb(null,'image')
+//     },
+//     filename:(req,file,cb)=>{
+//         console.log(file)
+//         cb(null,Date.now()+path.extname(file.originalname))
+//     }
+//  })
+//  const upload=multer({storage:storage}) 
 
-app.post("/upload",upload.single('image'),(req,res)=>{
-    res.send("Image upload complete");
-})
+// app.post("/upload",upload.single('image'),(req,res)=>{
+//     res.send("Image upload complete");
+// })
 
 
 
