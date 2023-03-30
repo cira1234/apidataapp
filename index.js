@@ -36,7 +36,7 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
       var img=req.params.avatar;
  
      connection.query(
-     'insert into menu (id,namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?,?)',     
+     'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
      [name,price,img,type,detail],
  
          console.log(name),
