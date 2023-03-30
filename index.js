@@ -227,34 +227,28 @@ app.put('/updatedata',function(req,res,next){
 //     res.send("Image upload complete");
 // })
 
-  const routes = require('./image'); // import the routes
-
-     app.use(express.json()); // parses incoming requests with JSON payloads
-
-     app.use('/', routes); //to use the routes
-
-     app.use('/upload', express.static('./upload'));
 
 
-// var http = require('http');
-// var formidable = require('formidable');
-// var fs = require('fs');
+var http = require('http');
+var formidable = require('formidable');
+var fs = require('fs');
 
-// http.createServer(function (req, res) {
-// if (req.url == '/upload') {
-// var form = new formidable.IncomingForm();
-// form.parse(req, function (err, fields, files) {
-// var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
-// var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
-// fs.rename(oldpath,newpath, function (err) {
-// if (err) throw err;
-// res.write('Upload Complete!');
-// res.end();
+http.createServer(function (req, res) {
+if (req.url == '/upload/:data') {
+ const files=req.params.data;
+var form = new formidable.IncomingForm();
+form.parse(req, function (err, fields, files) {
+var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
+var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
+fs.rename(oldpath,newpath, function (err) {
+if (err) throw err;
+res.write('Upload Complete!');
+res.end();
 
-// });
-// });
-// }
-// });
+});
+});
+}
+});
 
 
 
