@@ -212,42 +212,42 @@ app.put('/updatedata',function(req,res,next){
 })
 
 
-//  const storage=multer.diskStorage({
-//     destination: (req,file,cb)=>{
-//         cb(null,'image')
-//     },
-//     filename:(req,file,cb)=>{
-//         console.log(file)
-//         cb(null,Date.now()+path.extname(file.originalname))
-//     }
-//  })
-//  const upload=multer({storage:storage}) 
+ const storage=multer.diskStorage({
+    destination: (req,file,cb)=>{
+        cb(null,'image')
+    },
+    filename:(req,file,cb)=>{
+        console.log(file)
+        cb(null,Date.now()+path.extname(file.originalname))
+    }
+ })
+ const upload=multer({storage:storage}) 
 
-// app.post("/upload",upload.single('image'),(req,res)=>{
-//     res.send("Image upload complete");
-// })
+app.post("/upload",upload.single('image'),(req,res)=>{
+    res.send("Image upload complete");
+})
 
 
 
-var http = require('http');
-var formidable = require('formidable');
-var fs = require('fs');
+// var http = require('http');
+// var formidable = require('formidable');
+// var fs = require('fs');
 
-http.createServer(function (req, res) {
-if (req.url == '/upload') {
-var form = new formidable.IncomingForm();
-form.parse(req, function (err, fields, files) {
-var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
-var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
-fs.rename(oldpath,newpath, function (err) {
-if (err) throw err;
-res.write('Upload Complete!');
-res.end();
+// http.createServer(function (req, res) {
+// if (req.url == '/upload') {
+// var form = new formidable.IncomingForm();
+// form.parse(req, function (err, fields, files) {
+// var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
+// var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
+// fs.rename(oldpath,newpath, function (err) {
+// if (err) throw err;
+// res.write('Upload Complete!');
+// res.end();
 
-});
-});
-}
-});
+// });
+// });
+// }
+// });
 
 
 
