@@ -43,7 +43,7 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
          console.log(price),
          console.log(detail),
          console.log(type),
-         console.log(),
+         console.log(img),
  
  
          function(err,result){
