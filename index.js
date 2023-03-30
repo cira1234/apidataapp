@@ -33,7 +33,7 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
      var price=req.params.price;
      var detail=req.params.detail;
      var type=req.params.typepush;
-      var img=req.params.avatar
+      var img=req.params.avatar;
  
      connection.query(
      'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
