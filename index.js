@@ -25,7 +25,7 @@ console.log('Connected to PlanetScale!')
 
 
 
-app.get('/insertmenu/:name/:price/:detail/:typepush',function(req,res,next){
+app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,next){
     // insertapi.push(req.body)
      //let json =req.body
  
@@ -37,7 +37,7 @@ app.get('/insertmenu/:name/:price/:detail/:typepush',function(req,res,next){
  
      connection.query(
      'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
-     [name,price,'',type,detail],
+     [name,price,img,type,detail],
  
          console.log(name),
          console.log(price),
