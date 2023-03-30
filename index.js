@@ -212,21 +212,28 @@ app.put('/updatedata',function(req,res,next){
 })
 
 
- const storage=multer.diskStorage({
-    destination: (req,file,cb)=>{
-        cb(null,'image')
-    },
-    filename:(req,file,cb)=>{
-        console.log(file)
-        cb(null,Date.now()+path.extname(file.originalname))
-    }
- })
- const upload=multer({storage:storage}) 
+//  const storage=multer.diskStorage({
+//     destination: (req,file,cb)=>{
+//         cb(null,'image')
+//     },
+//     filename:(req,file,cb)=>{
+//         console.log(file)
+//         cb(null,Date.now()+path.extname(file.originalname))
+//     }
+//  })
+//  const upload=multer({storage:storage}) 
 
-app.post("/upload",upload.single('image'),(req,res)=>{
-    res.send("Image upload complete");
-})
+// app.post("/upload",upload.single('image'),(req,res)=>{
+//     res.send("Image upload complete");
+// })
 
+  const routes = require('./image'); // import the routes
+
+     app.use(express.json()); // parses incoming requests with JSON payloads
+
+     app.use('/', routes); //to use the routes
+
+     app.use('/upload', express.static('./upload'));
 
 
 // var http = require('http');
