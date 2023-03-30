@@ -2,8 +2,6 @@ var express = require('express')
 var cors =require('cors')
 const mysql = require('mysql2');
 const { query } = require('express');
-const path =require('path')
- const multer=require('multer');
 require('dotenv').config();
 
 
@@ -227,26 +225,26 @@ app.put('/updatedata',function(req,res,next){
 
 
 
-var http = require('http');
-var formidable = require('formidable');
-var fs = require('fs');
+// var http = require('http');
+// var formidable = require('formidable');
+// var fs = require('fs');
 
-http.createServer(function (req, res) {
-if (req.url == '/upload/:data') {
- const files=req.params.data;
-var form = new formidable.IncomingForm();
-form.parse(req, function (err, fields, files) {
-var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
-var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
-fs.rename(oldpath,newpath, function (err) {
-if (err) throw err;
-res.write('Upload Complete!');
-res.end();
+// http.createServer(function (req, res) {
+// if (req.url == '/upload/:data') {
+//  const files=req.params.data;
+// var form = new formidable.IncomingForm();
+// form.parse(req, function (err, fields, files) {
+// var oldpath = files.filetoupload.path;//ตำแหน่งที่เราเลือกต้นทาง
+// var newpath = 'image/' + files.filetoupload.name;//ตำแหน่งปลายทาง
+// fs.rename(oldpath,newpath, function (err) {
+// if (err) throw err;
+// res.write('Upload Complete!');
+// res.end();
 
-});
-});
-}
-});
+// });
+// });
+// }
+// });
 
 
 
