@@ -117,6 +117,9 @@ app.get('/selectmenu',function(req,res,next){
     
 })
 
+
+
+
 app.get('/selectmenuid/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
@@ -157,6 +160,21 @@ app.get('/selecteditcart/:id',function(req,res,next){
      }
  )
  
+})
+
+
+
+app.get('/deletemenu/:id',function(req,res,next){
+    const id=req.params.id;
+    connection.query(
+        'delete from menu where id=?',[id],
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
 })
 
 
