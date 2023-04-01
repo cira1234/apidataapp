@@ -70,6 +70,26 @@ app.get('/inserttable/:tablenumber',function(req,res,next){
 
 
 
+app.get('/inserttypefood/:tablenumber',function(req,res,next){
+    
+     var table=req.params.tablenumber;
+ 
+     connection.query(
+     'insert into foodtype (nametype) values (?)',     
+     [table],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+
 
 
 
