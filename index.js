@@ -118,6 +118,21 @@ app.get('/selectmenu',function(req,res,next){
 })
 
 
+app.get('/selecttable',function(req,res,next){
+    connection.query(
+
+        'select * from tablenumber',
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+
+
 
 
 app.get('/selectmenuid/:id',function(req,res,next){
