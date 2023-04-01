@@ -69,6 +69,25 @@ app.get('/inserttable/:tablenumber',function(req,res,next){
  })
 
 
+app.get('/checkorder/:check',function(req,res,next){
+    
+     var status=req.params.check;
+ 
+     connection.query(
+     'update priceup set checkorder=1 where id=? ',     
+     [status],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
 
 app.get('/inserttypefood/:tablenumber',function(req,res,next){
     
