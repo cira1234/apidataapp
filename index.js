@@ -66,7 +66,7 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
  
      connection.query(
      'insert into priceup (namemenu,price,number,imgmenu,datail,table_id,menu_id) values (?,?,?,?,?,?,?)',     
-     [namemenu,price,number,'logo/img/'+imgmenu,'',typepush,menuid],
+     [namemenu,price,number,imgmenu,'',typepush,menuid],
  
          console.log(namemenu),
          console.log(price),
