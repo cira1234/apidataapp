@@ -50,6 +50,27 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
 
 
 
+app.get('/inserttable/:tablenumber',function(req,res,next){
+    
+     var table=req.params.tablenumber;
+ 
+     connection.query(
+     'insert into tablenumber (active) values (?)',     
+     [table],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+
+
 
 
 
