@@ -92,14 +92,14 @@ app.get('/checkorder/:check',function(req,res,next){
 app.get('/editmenu/:namemenu/:price/:imgmenu/:typefood/:menudetail/:id',function(req,res,next){
     
     var id=req.params.id;
-     var namemenu=req.params.namemenu;
+    var namemenu=req.params.namemenu;
     var price=req.params.price;
     var imgmenu=req.params.imgmenu;
     var typefood=req.params.typefood;
     var menudetail=req.params.menudetail;
  
      connection.query(
-     'update priceup set namemenu=?,price=?,typefood=?,menudetail=? where id=?',     
+     'update menu set namemenu=?,price=?,typefood=?,menudetail=? where id=?',     
      [namemenu,price,imgmenu,typefood,menudetail,id],
  
  
