@@ -238,7 +238,7 @@ app.get('/selectfoodtype',function(req,res,next){
 app.get('/selectmenuid/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
-        'select table_id,menu.namemenu,menu.price,menu.imgmenu,menu.typefood,menu.menudetail from menu LEFT join priceup on menu.id = menu_id where menu.id=?',[id],
+        'select menu.id,table_id,menu.namemenu,menu.price,menu.imgmenu,menu.typefood,menu.menudetail from menu LEFT join priceup on menu.id = menu_id where menu.id=?',[id],
         function(err,result,field){
             res.json(result);
             console.log(result);
