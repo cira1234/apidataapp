@@ -293,6 +293,21 @@ app.get('/selecteditcart/:id',function(req,res,next){
 })
 
 
+app.get('/selectorderid/:id',function(req,res,next){
+    var id=req.params.id;
+ connection.query(
+
+     'select * from priceup where id=? and checkorder=1',[id],
+     function(err,result,field){
+         res.json(result);
+         console.log(result);
+         console.log(field);
+     }
+ )
+ 
+})
+
+
 
 app.get('/deletemenu/:id',function(req,res,next){
     const id=req.params.id;
