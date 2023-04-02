@@ -326,6 +326,19 @@ app.get('/deletemenu/:id',function(req,res,next){
 app.get('/deletetable/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
+        'delete from foodtype where id=?',[id],
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+app.get('/deletetype/:id',function(req,res,next){
+    const id=req.params.id;
+    connection.query(
         'delete from tablenumber where table_id=?',[id],
         function(err,result,field){
             res.json(result);
