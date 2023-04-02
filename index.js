@@ -203,6 +203,21 @@ app.get('/selectmenu',function(req,res,next){
 })
 
 
+
+app.get('/selectorder',function(req,res,next){
+    connection.query(
+
+        'select * from priceup where checkorder=1',
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+
 app.get('/selecttable',function(req,res,next){
     connection.query(
 
