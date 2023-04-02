@@ -74,7 +74,7 @@ app.get('/checkorder/:check',function(req,res,next){
      var status=req.params.check;
  
      connection.query(
-     'update priceup set checkorder=1 where id=? ',     
+     'update priceup set checkorder=1 where table_id=? ',     
      [status],
  
  
