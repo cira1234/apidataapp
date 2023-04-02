@@ -322,6 +322,21 @@ app.get('/deletemenu/:id',function(req,res,next){
     
 })
 
+
+app.get('/deletetable/:id',function(req,res,next){
+    const id=req.params.id;
+    connection.query(
+        'delete from tablenumber where id=?',[id],
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+
 app.get('/deleteorder/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
