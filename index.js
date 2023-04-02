@@ -297,7 +297,7 @@ app.get('/selectorderid/:id',function(req,res,next){
     var id=req.params.id;
  connection.query(
 
-     'select * from priceup where id=? and checkorder=1',[id],
+     'select id,namemenu,price,number,(price*number) AS priceupdate,imgmenu,datail from priceup where id=? and checkorder=1',[id],
      function(err,result,field){
          res.json(result);
          console.log(result);
