@@ -325,7 +325,7 @@ app.get('/deletemenu/:id',function(req,res,next){
 app.get('/deleteorder/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
-        'delete from menu where id=?',[id],
+        'delete from priceup where id=? and checkorder=1',[id],
         function(err,result,field){
             res.json(result);
             console.log(result);
@@ -339,7 +339,7 @@ app.get('/deleteorder/:id',function(req,res,next){
 app.get('/deletecart/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
-        'delete from priceup where id=? and checkorder=1',[id],
+        'delete from priceup where id=? ',[id],
         function(err,result,field){
             res.json(result);
             console.log(result);
