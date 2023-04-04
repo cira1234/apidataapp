@@ -321,7 +321,7 @@ app.get('/detailfinnish/:id',function(req,res,next){
 app.get('/selectmenufinnish',function(req,res,next){
     connection.query(
 
-        'select * from priceup where checkorder=2',
+        'select id,namemenu,price,number,imgmenu,table_id,(price*number) AS totalprice from priceup where checkorder=2',
         function(err,result,field){
             res.json(result);
             console.log(result);
