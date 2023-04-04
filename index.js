@@ -465,6 +465,33 @@ app.get('/deletemenu/:id',function(req,res,next){
     
 })
 
+app.get('/deleteall',function(req,res,next){
+    const id=req.params.id;
+    connection.query(
+        'delete from priceup where checkorder=2',
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+
+app.get('/deletehistory/:id',function(req,res,next){
+    const id=req.params.id;
+    connection.query(
+        'delete from priceup  where checkorder=2 and id=?',[id],
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
 
 app.get('/deletetable/:id',function(req,res,next){
     const id=req.params.id;
