@@ -282,6 +282,20 @@ app.get('/selectmenu',function(req,res,next){
     
 })
 
+app.get('/search/:typefood',function(req,res,next){
+     const typefood=req.params.typefood;
+    connection.query(
+
+        'select * from menu where typefood=?',[typefood],
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
 
 
 app.get('/selectorder',function(req,res,next){
