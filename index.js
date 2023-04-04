@@ -213,6 +213,26 @@ app.get('/inserttypefood/:tablenumber',function(req,res,next){
  })
 
 
+app.get('/finnishorder/:id',function(req,res,next){
+    
+    var id=req.params.id;
+    var price=req.params.price;
+
+ 
+     connection.query(
+     'update priceup set checkorder=2 where id=?',     
+     [id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
 
 
 
