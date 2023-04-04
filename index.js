@@ -110,6 +110,89 @@ app.get('/editnamemenu/:namemenu/:id',function(req,res,next){
  })
 
 
+app.get('/editprice/:price/:id',function(req,res,next){
+    
+    var id=req.params.id;
+    var price=req.params.price;
+
+ 
+     connection.query(
+     'update menu set price=? where id=?',     
+     [price,id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+app.get('/editdetail/:detail/:id',function(req,res,next){
+    
+    var id=req.params.id;
+    var detail=req.params.detail;
+
+ 
+     connection.query(
+     'update menu set menudetail=? where id=?',     
+     [detail,id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+app.get('/editimage/:avatar/:id',function(req,res,next){
+    
+    var id=req.params.id;
+    var imgmenu=req.params.avatar;
+
+ 
+     connection.query(
+     'update menu set imgmenu=? where id=?',     
+     [imgmenu,id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+app.get('/edittype/:typefood/:id',function(req,res,next){
+    
+    var id=req.params.id;
+    var typefood=req.params.typefood;
+
+ 
+     connection.query(
+     'update menu set typefood=? where id=?',     
+     [typefood,id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
 
 app.get('/inserttypefood/:tablenumber',function(req,res,next){
     
