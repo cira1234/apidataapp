@@ -89,7 +89,7 @@ app.get('/checkorder/:check',function(req,res,next){
 
 
 
-app.get('/editmenu/:namemenu/:price/:imgmenu/:typefood/:menudetail/:id',function(req,res,next){
+app.get('/editmenu/:namemenu/:price/:imgmenu/:menudetail/:typefood/:id',function(req,res,next){
     
     var id=req.params.id;
     var namemenu=req.params.namemenu;
@@ -99,7 +99,7 @@ app.get('/editmenu/:namemenu/:price/:imgmenu/:typefood/:menudetail/:id',function
     var menudetail=req.params.menudetail;
  
      connection.query(
-     'update menu set namemenu=?,price=?,typefood=?,menudetail=? where id=?',     
+     'update menu set namemenu=?,price=?,imgmenu=?,typefood=?,menudetail=? where id=?',     
      [namemenu,price,imgmenu,typefood,menudetail,id],
  
  
