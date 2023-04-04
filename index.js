@@ -307,7 +307,7 @@ app.get('/detailfinnish/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
 
-        'select * from priceup where id=?',[id],
+        'select *,(price*number) AS totalprice from priceup where id=?',[id],
         function(err,result,field){
             res.json(result);
             console.log(result);
