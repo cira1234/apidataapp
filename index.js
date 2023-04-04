@@ -88,6 +88,27 @@ app.get('/checkorder/:check',function(req,res,next){
  })
 
 
+app.get('/editnumber/:number/:id',function(req,res,next){
+    
+     var number=req.params.number;
+    var id=req.params.id;
+ 
+     connection.query(
+     'update priceup set number=? where id=? ',     
+     [number,id],
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
+
 
 app.get('/editnamemenu/:namemenu/:id',function(req,res,next){
     
