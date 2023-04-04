@@ -302,6 +302,20 @@ app.get('/selectmenu',function(req,res,next){
     
 })
 
+
+app.get('/selectmenufinnish',function(req,res,next){
+    connection.query(
+
+        'select * from priceup where checkorder=2',
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
 app.get('/search/:typefood',function(req,res,next){
      const typefood=req.params.typefood;
     connection.query(
