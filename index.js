@@ -456,6 +456,20 @@ app.get('/selecteditcart/:id',function(req,res,next){
  
 })
 
+app.get('/allcart',function(req,res,next){
+    var id=req.params.id;
+ connection.query(
+
+     'select * from priceup  ',
+     function(err,result,field){
+         res.json(result);
+         console.log(result);
+         console.log(field);
+     }
+ )
+ 
+})
+
 
 app.get('/selectorderid/:id',function(req,res,next){
     var id=req.params.id;
