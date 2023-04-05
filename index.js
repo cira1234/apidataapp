@@ -457,7 +457,6 @@ app.get('/selecteditcart/:id',function(req,res,next){
 })
 
 app.get('/allcart',function(req,res,next){
-    var id=req.params.id;
  connection.query(
 
      'select * from priceup  ',
