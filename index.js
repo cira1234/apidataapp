@@ -324,18 +324,6 @@ app.get('/selectmenu',function(req,res,next){
 })
 
 
-app.get('/selectcart',function(req,res,next){
-    connection.query(
-
-        'select * from priceup',
-        function(err,result,field){
-            res.json(result);
-            console.log(result);
-            console.log(field);
-        }
-    )
-    
-})
 
 app.get('/detailfinnish/:id',function(req,res,next){
     const id=req.params.id;
