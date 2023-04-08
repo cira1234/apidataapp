@@ -529,7 +529,7 @@ app.get('/deleteall',function(req,res,next){
 app.get('/deletehistory/:id',function(req,res,next){
     const id=req.params.id;
     connection.query(
-        'delete from priceup  where checkorder=2 and id=?',[id],
+        'delete from priceup  where id=? and checkorder=2',[id],
         function(err,result,field){
             res.json(result);
             console.log(result);
