@@ -58,7 +58,7 @@ app.get('/insertuser/:name/:email/:pass/:tel',function(req,res,next){
     
  
      connection.query(
-     'insert into menu (name,email,pass,tel) values (?,?,?,?)',     
+     'insert into usermember (name,email,pass,tel) values (?,?,?,?)',     
      [name,email,pass,tel],
  
     
