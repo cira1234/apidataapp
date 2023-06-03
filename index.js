@@ -49,6 +49,35 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
 
 
 
+app.get('/insertuser/:name/:price/:avatar/:detail/:typepush',function(req,res,next){
+    
+     var name=req.params.name;
+     var price=req.params.price;
+     var detail=req.params.detail;
+     var type=req.params.typepush;
+      var img=req.params.avatar;
+ 
+     connection.query(
+     'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
+     [name,price,img,type,detail],
+ 
+         console.log(name),
+         console.log(price),
+         console.log(detail),
+         console.log(type),
+         console.log(img),
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
 
 app.get('/inserttable/:tablenumber',function(req,res,next){
     
@@ -314,6 +343,20 @@ app.get('/selectmenu',function(req,res,next){
     connection.query(
 
         'select * from menu',
+        function(err,result,field){
+            res.json(result);
+            console.log(result);
+            console.log(field);
+        }
+    )
+    
+})
+
+
+app.get('/selectuser',function(req,res,next){
+    connection.query(
+
+        'select * from usermember',
         function(err,result,field){
             res.json(result);
             console.log(result);
