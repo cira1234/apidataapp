@@ -49,23 +49,19 @@ app.get('/insertmenu/:name/:price/:avatar/:detail/:typepush',function(req,res,ne
 
 
 
-app.get('/insertuser/:name/:price/:avatar/:detail/:typepush',function(req,res,next){
+app.get('/insertuser/:name/:email/:pass/:tel',function(req,res,next){
     
      var name=req.params.name;
-     var price=req.params.price;
-     var detail=req.params.detail;
-     var type=req.params.typepush;
-      var img=req.params.avatar;
+     var email=req.params.email;
+     var pass=req.params.pass;
+     var tel=req.params.tel;
+    
  
      connection.query(
-     'insert into menu (namemenu,price,imgmenu,typefood,menudetail) values (?,?,?,?,?)',     
-     [name,price,img,type,detail],
+     'insert into menu (name,email,pass,tel) values (?,?,?,?)',     
+     [name,email,pass,tel],
  
-         console.log(name),
-         console.log(price),
-         console.log(detail),
-         console.log(type),
-         console.log(img),
+    
  
  
          function(err,result){
