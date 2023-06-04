@@ -362,20 +362,20 @@ app.get('/selectuser',function(req,res,next){
     
 })
 
-app.get('/selectuserid/:email/:pass',function(req,res,next){
-    connection.query(
-         const email=req.params.email;
-        const pass=req.params.pass;
+// app.get('/selectuserid/:email/:pass',function(req,res,next){
+//     connection.query(
+//          const email=req.params.email;
+//         const pass=req.params.pass;
         
-        'select * from usermember where email=? and pass=?',[email,pass],
-        function(err,result,field){
-            res.json(result);
-            console.log(result);
-            console.log(field);
-        }
-    )
+//         'select * from usermember where email=? and pass=?',[email,pass],
+//         function(err,result,field){
+//             res.json(result);
+//             console.log(result);
+//             console.log(field);
+//         }
+//     )
     
-})
+// })
 
 
 
