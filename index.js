@@ -386,7 +386,7 @@ app.get('/selectuserid/:email/:pass',function(req,res,next){
 app.get('/showprofile/:email',function(req,res,next){
     
     var email=req.params.email;
- \
+ 
 
  
      connection.query(
