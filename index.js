@@ -383,6 +383,27 @@ app.get('/selectuserid/:email/:pass',function(req,res,next){
  })
 
 
+app.get('/showprofile/:email',function(req,res,next){
+    
+    var email=req.params.email;
+ \
+
+ 
+     connection.query(
+     'select * from usermember where email=?',[email],     
+     
+ 
+ 
+         function(err,result){
+             res.json(result);
+             console.log(result);
+             //console.log(field);
+         }
+     )
+     
+ })
+
+
 
 
 app.get('/detailfinnish/:id',function(req,res,next){
