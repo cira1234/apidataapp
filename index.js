@@ -370,7 +370,7 @@ app.get('/selectuserid/:email/:pass',function(req,res,next){
  
      connection.query(
      'select * from usermember where email=? and pass=?',[email,pass],     
-     
+     console.log("true");
  
  
          function(err,result){
