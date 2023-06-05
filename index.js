@@ -376,6 +376,7 @@ app.get('/selectuserid/:email/:pass',function(req,res,next){
          function(err,result){
              res.json(result);
              console.log(result);
+             console.log("true");
              //console.log(field);
          }
      )
